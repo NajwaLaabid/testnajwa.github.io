@@ -30,3 +30,5 @@ gem "webrick", "~> 1.7"
 
 gem "jekyll-figure", "~> 0.1.0"
 
+
+gem "jekyll-redirect-from", "~> 0.16.0"

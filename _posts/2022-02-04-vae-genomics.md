@@ -1,7 +1,6 @@
 ---
 title: 'Variational Autoencoders for Modeling Single-Cell Data'
 date: 2022-02-04T15:41:03+02:00
-permalink: /posts/2012/08/blog-post-1/
 tags:
   - variational autoencoders
   - generative modeling
