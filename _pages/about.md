@@ -20,4 +20,4 @@ I did my [master's thesis](https://erepo.uef.fi/bitstream/handle/123456789/26001
 I have earned my master's degree in information technology with a minor in statistics from the [University of Eastern Finland](https://www.uef.fi/en),
 and my Bachelor's degree in Computer Science with a minor in Business Administration from [Al Akhawayn University in Ifrane](http://www.aui.ma/en/).
 
-You can find more information about my work from my [Github page](https://github.com/NajwaLaabid), and my professional career from my [Linkedin](https://www.linkedin.com/in/najwa-laabid/) profile/CV.
+You can find more information about my work from my [Github page](https://github.com/NajwaLaabid), and my professional career from my [Linkedin](https://www.linkedin.com/in/najwa-laabid/) profile or [resume](https://testnajwa.github.io/assets/resume.pdf).
