@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Najwa Laabid"
 title_separator          : "-"
 name                     : &name "Najwa Laabid"
-description              : &description "Junior Researcher in systems genomics"
+description              : &description "Junior researcher in systems genomics"
 url                      : "https://najwalaabid.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "NajwaLaabid/najwalaabid.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Najwa Laabid"
   avatar           : "me.png"
-  bio              : "Junior Researcher in systems genomics"
+  bio              : "Junior researcher in systems genomics"
   location         : "Helsinki"
   employer         : 
   pubmed           :
