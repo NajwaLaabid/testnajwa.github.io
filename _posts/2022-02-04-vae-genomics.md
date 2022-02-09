@@ -3,6 +3,7 @@ title: 'Variational Autoencoders for Modeling Single-Cell Data'
 date: 2022-02-04T15:41:03+02:00
 redirect_from:
   - /vae-genomics
+  - /blog/vae-genomics
 tags:
   - variational autoencoders
   - generative modeling
