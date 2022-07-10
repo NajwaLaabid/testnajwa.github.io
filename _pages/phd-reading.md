@@ -8,14 +8,11 @@ redirect_from:
   - /phd-reading.html
 ---
 
-# Literature review for my PhD thesis
+# Literature review for my Ph.D.
 
-Because reading is fundamental.
-
-## Retrosynthesis (chemistry)
-- [Is organic chemistry really growing exponentially?](https://onlinelibrary.wiley.com/doi/epdf/10.1002/ange.202111540)
-- Book: [The logic of chemical synthesis](https://ia800205.us.archive.org/30/items/Logic_of_Chemical_Synthesis_Corey_1989/Logic_of_Chemical_Synthesis_Corey_1989_text.pdf)
-- [The Logic of Chemical Synthesis: Multistep Synthesis of Complex Carbogenic Molecules (Nobel Lecture)](https://onlinelibrary.wiley.com/doi/10.1002/anie.199104553)
+{:refdef: style="text-align: center;"}
+![Because reading is fundamental 👌](../images/reading.gif)
+{: refdef}
 
 ## ML for Retrosynthesis
 ### Reviews
@@ -31,3 +28,8 @@ Because reading is fundamental.
 
 ## Graph NDE
 - [GRAND: Graph Neural Diffusion](https://openreview.net/pdf?id=_1fu_cjsaRE)
+
+## Retrosynthesis (chemistry)
+- [Is organic chemistry really growing exponentially?](https://onlinelibrary.wiley.com/doi/epdf/10.1002/ange.202111540)
+- Book: [The logic of chemical synthesis](https://ia800205.us.archive.org/30/items/Logic_of_Chemical_Synthesis_Corey_1989/Logic_of_Chemical_Synthesis_Corey_1989_text.pdf)
+- [The Logic of Chemical Synthesis: Multistep Synthesis of Complex Carbogenic Molecules (Nobel Lecture)](https://onlinelibrary.wiley.com/doi/10.1002/anie.199104553)

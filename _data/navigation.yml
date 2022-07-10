@@ -2,7 +2,7 @@
 main:
   - title: "Blog Posts"
     url: /year-archive/
-  - title: "Ph.D. Reading List"
-    url: /phd-reading/
   - title: "CV"
     url: https://najwalaabid.github.io/files/cv.pdf
+  - title: "Ph.D. Reading List"
+    url: /phd-reading/
