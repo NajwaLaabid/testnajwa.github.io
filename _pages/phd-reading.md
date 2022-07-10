@@ -1,10 +1,7 @@
 ---
-permalink: /phd-reading/
-title: ""
-excerpt: ""
+title: "Ph.D. Reading"
 author_profile: true
-redirect_from: 
-  - /phd-reading.html
+permalink: /phd-reading/
 ---
 
 # Literature review for my Ph.D.
