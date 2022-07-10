@@ -6,10 +6,6 @@ permalink: /phd-reading/
 
 # Literature review for my Ph.D.
 
-{:refdef: style="text-align: center;"}
-![Because reading is fundamental 👌](../images/reading.gif)
-{: refdef}
-
 ## ML for Retrosynthesis
 ### Reviews
 - [Deep learning in retrosynthesis planning: datasets, models and tools](https://academic.oup.com/bib/article/23/1/bbab391/6375056)
