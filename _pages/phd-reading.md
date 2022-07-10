@@ -1,5 +1,5 @@
 ---
-permalink: /
+permalink: /phd-reading/
 title: ""
 excerpt: ""
 author_profile: true
