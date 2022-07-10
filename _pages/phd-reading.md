@@ -4,7 +4,6 @@ title: ""
 excerpt: ""
 author_profile: true
 redirect_from: 
-  - /phd-reading/
   - /phd-reading.html
 ---
 
