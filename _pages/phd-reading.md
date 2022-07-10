@@ -1,10 +1,8 @@
 ---
-title: "Ph.D. Reading"
+title: "Literature review for my Ph.D."
 author_profile: true
 permalink: /phd-reading/
 ---
-
-# Literature review for my Ph.D.
 
 {:refdef: style="text-align: center;"}
 ![Because reading is fundamental 👌](/../images/reading.gif)
