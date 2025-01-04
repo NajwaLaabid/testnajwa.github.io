@@ -1,0 +1,15 @@
+# 14.10.2024
+- PDE-GP
+  - organize the notebooks to replicate all results easily [DONE]
+  - new notebook: differentiation with jax => scindy dictionary for heat equation
+  - also heat equation with 2 extra dummy parameters with mle
+  - write down the math/update the notes
+  - read + take notes on 2 main references
+- Multi-step retro
+  - organize literature
+  - write down metrics + dataset
+  - formalize generative approach
+  - take notes of how other methods failed 
+- KalmanFlows
+  - read time series papers especially the ones using gps
+  - come up with experimentation plan + start running experiments
