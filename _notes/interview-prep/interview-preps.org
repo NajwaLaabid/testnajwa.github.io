@@ -1,0 +1,56 @@
+# ML and Algorithmic Problems Specific to Retrosynthesis:
+Key challenges you should be prepared to discuss:
+## Graph representation of molecules (how to encode molecular structure)
+## Handling variable-sized inputs (molecules can have different numbers of atoms)
+## Dealing with chemical symmetry and equivalent representations
+## Forward vs reverse prediction challenges in retrosynthesis
+## Multi-step pathway planning
+## Validity checking of predicted molecules
+## Handling sparse reaction data
+## Incorporating chemical rules and constraints
+
+# General ML Problems:
+## Different types of neural networks (especially graph neural networks)
+## Loss functions and their trade-offs
+## Overfitting and regularization
+## Gradient descent optimization
+## Model evaluation metrics
+## Handling imbalanced datasets
+## Cross-validation strategies
+## Attention mechanisms
+## Transfer learning
+
+# Technologies
+## Python's Pandas
+- pros and cons
+- underlying data structure: time/space complexity
+- basic manoeuvres: stats, aggregation, apply functions, plots, save/export data
+
+## Data structures & Algorithms to know
+- Graph traversal
+- Graph similarity
+- Search algorithms
+
+## ChemInformatics sofware 
+### RDKIT
+- proper way to canonicalize using rdkit
+### RDKIT-chiral
+### chython/chytorch
+
+## Testing ML code
+- best practices
+- libraries for python
+- integration with Git
+
+## Commonly used Git commands
+- pulling out a remote branch locally
+  - git checkout -b iclr2025-rebuttals origin/iclr2025-rebuttals
+
+# DiffAlign 
+## Equivariance proofs
+## 
+
+# Chemistry concepts
+## Isomers
+## Stereochemistry
+## Kekulization

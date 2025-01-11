@@ -1,0 +1,48 @@
+# ML concepts specific to retrosynthesis
+## Attention mechanisms
+## GNN architectures
+- Basics of message-passing:
+  - equivariance
+- Graph attention:
+  - first proposed in [Graph attention networks](https://arxiv.org/abs/1710.10903)
+  - [TODO] brief overview of existing architectures + how they differ
+  - use Laplacian PE instead of other PEs 
+- Laplacian positional encodings:
+  - 
+- GCN:
+- [Graph transformer](https://arxiv.org/abs/2012.09699):
+  - used by digress and also by us in DiffAlign (also retrodiff, retrobridge etc)
+  - pros/use case: predict both edges and nodes
+  - relies on [FiLM layers](https://arxiv.org/abs/1709.07871) and attention mechanisms
+  - alternatives:
+  ? Interview question: 
+    - In the context of retrosynthesis prediction, how would you explain the benefits and implementation of a graph attention mechanism compared to standard message passing? Consider scenarios where attention might be particularly valuable.
+        - Benefits: use nodes and edges for predicting all components, attention captures the effect of each component on all others, relevant for molecules in particular because faraway and close components can have different effects
+        - Implementation:
+        - Scenarios when most valuable: think about the structures of the molecule and where component interactions is least expected.
+        - vs alternatives 
+
+# Math concepts relevant to retrosynthesis
+## Equivariance
+## Graph Laplacian
+## Discrete distributions
+
+# Molecular representation
+## Moecular fingerprints
+## SMILES
+## Graph representation
+- augmented with structural and chemical properties
+## Chemical descriptors encoding
+
+# Most relevant previous work
+- RetroBridge
+- DiGress
+- MolTransformer
+- DESP
+- Retro*
+- MCTS
+- Syntheseus
+- Chimerea 
+- GLN
+- localretro
+- rsmiles

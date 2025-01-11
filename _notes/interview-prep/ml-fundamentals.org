@@ -1,0 +1,86 @@
+* Learning Paradigms
+refers to the main frameworks of  ML that exist so far.
+
+** Supervised learning
+- requires labeled data
+- the goal is to learn a function of some high-dimensional data (representing features) and predict the given labels
+- includes regression, and classification
+- Active learning as a subset: Strategy where model actively selects which data points to be labeled by an expert, optimizing labeling effort. Used when labeling is expensive/time-consuming.
+- downside: access to labelled data, data-imbalance, bias-variance tradeoff
+- Model evaluation strategies
+  
+** Unsupervised learning
+- no labels
+- the goal is to learn the underlying structure of the data
+- includes clustering, dimensionality reduction, anomaly detection, generative modeling
+- downside: no labels, no direct way to evaluate the performance
+  
+** Semi-supervised learning
+- some labeled data, some unlabeled data
+- the goal is to learn a function of some high-dimensional data (representing features) and predict the given labels
+- includes clustering, dimensionality reduction
+- downside: no labels, no direct way to evaluate the performance
+- Common techniques:
+  - pseudo-labeling: Model makes predictions on unlabeled data, uses most confident predictions as "pseudo-labels"
+  - consistency regularization: Model should output similar predictions for perturbed versions of same input
+  - Other methods: Mean teacher, MixMatch, FixMatch, entropy minimization
+- When it's most effective vs. fully supervised
+
+## Reinforcement learning
+* the goal is to learn a policy that maximizes the reward
+* includes Q-learning, policy gradient, actor-critic
+* downside: no labels, no direct way to evaluate the performance
+* RL key concepts:
+  * Policy: Maps states to actions (learned strategy)
+  * Value function: Expected future reward from a state
+  * Q-function: Expected future reward from state-action pair
+  * Environment model
+  * Reward function
+* Exploration vs. exploitation tradeoff: Pure exploitation may miss optimal strategy, pure exploration is inefficient
+
+* DL neural networks
+** dropout
+** batch normalization
+** EMA
+
+# Optimization
+
+## Gradient descent variants
+## Learning rate scheduling
+## Loss functions
+## Backpropagation
+## Optimization challenges (vanishing/exploding gradients)
+
+# Model Training
+
+## Bias-variance tradeoff
+## Overfitting/underfitting
+## Cross-validation
+## Regularization techniques
+## Hyperparameter tuning
+## Batch processing
+
+# Data Handling
+
+## Feature engineering/selection
+## Preprocessing techniques
+## Dimensionality reduction
+## Handling missing data
+## Data augmentation
+## Class imbalance
+
+# Model Evaluation
+
+## Metrics (accuracy, precision, recall, F1)
+## ROC curves
+## Cross-validation
+## Statistical significance
+## Error analysis
+
+# Statistical Foundations
+
+## Probability theory
+## Statistical inference
+## Distribution types
+## Maximum likelihood estimation
+## Bayesian methods

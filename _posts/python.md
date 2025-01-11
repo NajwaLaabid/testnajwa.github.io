@@ -8,6 +8,10 @@ tags:
   - Python, ML
 ---
 
+# Tensors
+- applies to pytorch and numpy tensor manipulations
+## slicing, accessing elements
+
 # Sets
 
 ## Big O of key operations

@@ -1,65 +1,111 @@
 
 # Different views on diffusion models
-## vs generative models: latent variable, likelihood-based estimation
+## diffusion probabilistic models (latent variable model view)
+- inspired by non-equilibrium thermodynamics => how?
 - this is the view that was originally called 'diffusion probabilistic model' by sohl-dickstein
-  - this is also where elbo was proposed as a loss => from song's article again '... and learn a variational decoder to reverse a discrete diffusion process that perturbs data to noise.'
+  - this is also where elbo was proposed as a loss => from song's score-matching article '... and learn a variational decoder to reverse a discrete diffusion process that perturbs data to noise.'
+    - what counts as 'variational decoder'? => what does variational mean?
 - perspective directly connects to VAEs, lossy compression, and can be directly incorporated with variational probabilistic inference
+  - hmm really? how are diffusion models related to 'lossy compression?
+  - and how would they be integrated with variational probabilisitc inference?
 - a latent variable model where latents are of the same dimension as the true data + the encoding process/procedure is fixed
 - we can get the likelihood from the connection between normalizing flows and diffusion models, also from the probability flow ODE (?)
   - what does likelihood-based model mean in this context? like are we actually directly optimizing the likelihood somehow?
+    - a likelihood-based model means the model *is* the distribution's probability density/mass function, that's what we try to learn/approximate
+      - btw the difference between density and mass might be interesting => maybe smthg happens when talking about a continuous space that does not happen in the discrete spaces
+      - also a likelihood is simply a probability density/mass with the parameters and variable flipped: in the likelihood the parameters are what varies in the function and the random variable in the distribution is given a fixed value (from observations)
+        - this also means that: 1) likelihood is only defined for parametric models, 2) the likelihood is proportional to the density think Bayes rule/conditional distribution with a joint distribution defined for the variables and parameters).
+    - vs implicit generative model: where we model the sampling process of a distribution, and thus model the distribution 'implicitly'
+      - sampling process is modeled by learning a function that transforms a sample from a Gaussian distribution to a sample from the data distribution
+        - isn't this what vae etc do as well?
+    - limitations of likelihood-based modelling: we need to either 
+      - 1) make computing the likelihood tractable 
+        - mainly need a tractable normalizing constant => how is it achieved through invertibility?
+      - 2) replace the likelihood function with an approximation/surrogate function => like which models?
+    - limitations of implicit generative models:
+      - 1) need for adversarial training => general or specific to GANs?
+      - 2) mode collapse => smthg that happens in other models/contexts as well? what does it mean?
+    - I guess when using the elbo as a loss yeah... 
+      - how about when optimizing CE? I guess we get an estimate of the LL through the elbo still even if we don't optimize it directly
+- 'unlike vae or flow-models, diffusion models are learned with a fixed procedure' (lil'log) => how? what is the fixed procedure
+- Langevin dynamics: developed for statistically modeling molecular systems
+  - related concept: stochastic gradient Langevin dynamics
+- very similar to VAEs (lil'log)?
   
-## score matchig view
+## score-based models (continuous time diffusion view?)
 - score-matching methods were later shown to be equivalent to diffusion probabilistic models
-  - probably best to describe these as separate methods then show their connection to dpms and other generative models (think paper showing equivalence between all of them)
   - the connection was first drawn by Ho et al. when they were trying to improve the performance of diffusion probabilistic methods:
-    - they showed the the elbo and this weighted loss used by score matching are equivalent
+    - they showed the elbo and this weighted loss used by score matching are equivalent
     - they also used a 'score-based decoder with a u-net architecture' and improved the performance of dpms to sota
+  - probably best to describe these as separate methods then show their connection to dpms and other generative models (think paper showing equivalence between all of them)
+- the motivation behind score-matching: propose a different way to model the probability distribution that is not:
+  -  1) a probability density (or at least does not rely on an explicit likelihood function)
+  -  2) a model of the sampling process
+  - the method proposed is to model the score function, i.e. the gradient of the log probability density function
+    - learning the score function can be directly done by score-matching, instead of likelihood maximization
+- why is the score function depicted as a vector field?
+  - hmm I mean it is a gradient, therefore a vector with magnitude and direction
 - this type of model is 'directly connected to schrodinger bridges and optimal transport' => how?
+  - I guess we can change the flow s.t. it's a solution to an optimal transport problem, which is also a schrodinger bridge?
 - 'train the score matching model on the noisy data'
-  - is it training the score matching on nosiy data though? how are we learning a score model in diffusion anyway? how is that learning affected by the noising process?
+  - is it training the score matching on nosiy data though? 
     - we try to match 'noised' scores now
-      - denoising score matching
+      - denoising score matching?
+  - how are we learning a score model in diffusion anyway? 
+    - see Ho's paper
+  - how is that learning affected by the noising process?
+    - hmm interesting notion of noising, present in many other methods apparently
     - how is score matching involved in diffusion models anyway?
+      - also smthg Ho introduced?
 - Also has a connection to SDEs by 'generalizing the number of noise levels/scales to infinity' 
+  - hmm but was score matching initially proposed in discrete time then?
   - noise perturbation = a 'continuous time stochastic process' 
     - formal definition of a stochastic process? 
-      - diffusion process is a subcategory
+      - diffusion process is a an example of a stochastic process
       - many are solutions to SDEs: SDE offers a concise description/definition of the process
-        - made of drift and diffusion coefficients
+        - the SDE equation is made of the drift and diffusion coefficients
       - Brownian motion as an example of a stochastic process
+        - hmm is this always the diffusion term (i.e. what's after the diffusion coefficient)? can it be smthg else?
     - example of discrete time stochastic process?
   - advantages of SDE view/continuous time perturbation:
     - higher quality samples => why? just a 'finer' / more refined version of the same process?
     - is this what's considered 'continuous time' diffusion models?
+      - hmm interesting question, tempted to say yes because when the connection between score-matching and diffusion was established subsequent work showed that diffusion at the infinite time limit is a score-matching model? or an SDE?
     - exact log-likelihood computation => only possible in the infinite noise setup?  
+      - hmm maaaybe, I guess we would always have the ELBO (or do we always have it?) for the discrete time case, both for diffusion and score-matching models
+      - anyway exact likelihood computation is only possible when using a specific (ODE-based) sampling method
     - controllable generation for inverse problem solving 
       - but since then controllable generation has been developped for discrete time diffusion models too right?
       - also what advantages do discrete time models have over continuous time? or why were they invented in the first place?
+        - they were invented separately in dpms at least
       - what is 'inverse problem solving'? how does it relate to controllable generation?
+        - they mean the same thing: 'inverse problem' comes from the idea of inferring p(x|y) when we know p(y|x) using Bayes rule
   - analogy between SDE and discrete-time process:
-    - dx = e^t dw => equivalent to add discrete noise with variance forming a geometric progression
-      - connection between geometric progression and exponentially growing variance
+    - dx = e^t dw => equivalent to adding discrete noise with variance forming a geometric progression
+      - connection between geometric progression and exponentially growing variance?
       - connection between SDE and 'noise schedule'? is the noise schedule basically the variance of the normal distribution or can it be smthg else too?
   - properties of the various SDEs/noise schedules and what can be done there
   
 # Forward process
 - explain the forward process equation: $q(x_t|x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_t, \beta_t \mathcal{I})$
-  - what does it look like for a discrete process?
+  - is it the same whether the process is continuous or discrete time?
   - what are the requirements for a noising process in general?
 - effect of Song's recommendations: 
-  - why geometric progression of variance/std (and does it matter which)? 
+  - why geometric progression of variance/std (and does it matter if it's std or var)? 
   - why maximum variance comparable to the maximum pairwise distance between all pairs of data points?
+    - probably to make sure any similarity between the data points is completely destroyed
 - one intuition behind noising is easy to see though: adding noise would populate low density regions
+  - on second thought, not sure how the noise distribution and the true data distribution 'interact' here
   - at the extreme a totally noised out data point is a sample from a Gaussian (or whatever the stationary distribution is)
   - hmm is it correct to say that we replace the data density with Gaussian densities of different moments?
   - also not clear to me how someone would think 'adding noise should help here' aren't we learning incorrect scores now?
     - apparently the idea has been used in multiple other domains/methods, like annealing importance sampling, simulated annealing, etc
-    - 
 - noising mathematically: 
   - there is this equaiton: p_{\sigma_i}(x) = \int p(y) \mathcal{N}(x;y, \sigma_i^2 \mathcal{I}) dy (from song's [blog](https://yang-song.net/blog/2021/score/) about score matching)
-  - how does it relate to adding a sample from a Gaussian: x_{\sigma_i} = x + e, e \sim N(0; \sigma_i^2 I)
-    - is this how you sample from p_{\sigma_i}(x)? 
-    - is it the same as: x_{\sigma_i} = x + \sigma_i^2 e, e \sim N(0; \sigma_i^2 I)
+    - is this what is known as Gaussian convolution?
+    - how does it relate to adding a sample from a Gaussian: x_{\sigma_i} = x + e, e \sim N(0; \sigma_i^2 I)
+      - is this how you sample from p_{\sigma_i}(x)? 
+      - is it the same as: x_{\sigma_i} = x + \sigma_i^2 e, e \sim N(0; \sigma_i^2 I)
 
 # Reverse/denoising process
 - why are U-net skip connections recommended?
@@ -68,7 +114,9 @@
 # Losses
 - Fisher divergence
   - what is it? what does it mean intuitively?
-  - why do we use a weighted sum of fisher divergences of noisy scores? what effect does choosing the weight as the noise variance have on the training/loss?
+    - a measure of similarity between two distributions using their score functions
+    - name abused to describe the loss used by score-based models since the first term of the loss (see song's blog) is not actually a distribution
+  - why do we use a weighted sum of fisher divergences of noisy scores? what effect does choosing the noise variance as the weight have on the training/loss?
   - in the time-continuous case, how does the specific choice of $\lambda(t)$ 'balance the magnitude of different score matching losses over time'?
     - and why is that helpful/important?
   - again on the choice of the weighting function: 
@@ -81,8 +129,8 @@
     - hmm so when do we choose which actually? and if we want to maximize the likelihood, does it hurt to not be balancing ou the magnitudes of score matching losses?
   - how does fisher divergence optimization relate to elbo optimization? and to CE? also any other losses in general?
     - elbo and this weighted loss are equivalent, it was shown by Ho et al 2020 when they were trying to improve the performance of diffusion probabilistic methods
-    - the connectio
 - methods to optimize the loss: denoising score matching and sliced score matching
+    - score-matching optimizes Fisher's divergence without access to the data scores
 
 # Sampling
 - Annealed Langevin dynamics: 
